@@ -1,0 +1,65 @@
+<ul ng-if="ctrl.visiblePages>1" class="pagination pagination-sm">
+    <li ng-if="ctrl.totalPages>ctrl.visiblePages"
+        ng-hide="ctrl.settings.hideFirstLink"
+        ng-class="{
+            disabled: ctrl.currentPage==0
+        }">
+        <a  href="javascript:;"
+            ng-click="ctrl.setPage(0)"
+            ng-class="{
+                disabled: ctrl.currentPage==0
+            }">
+            &laquo;
+        </a>
+    </li>
+    <li ng-class="{
+            disabled: ctrl.currentPage==0
+        }">
+        <a  href="javascript:;"
+            ng-click="ctrl.setPage(ctrl.currentPage-1, (ctrl.currentPage==0))"
+            ng-class="{
+                disabled: ctrl.currentPage==0
+            }">
+            &lt;
+        </a>
+    </li>
+    <li ng-repeat="page in ctrl.pageNumbers"
+        ng-class="{
+            active: page==ctrl.currentPage
+        }">
+        <a  href="javascript:;"
+            ng-click="ctrl.setPage(page)">
+            {{page+1}}
+        </a>
+    </li>
+    <li ng-show="ctrl.endPage<ctrl.totalPages">
+        <a  href="javascript:;"
+            ng-click="ctrl.setPage(ctrl.endPage)">
+            ...
+        </a>
+    </li>
+    <li ng-class="{
+            disabled: ctrl.currentPage>=ctrl.totalPages-1
+        }">
+        <a  href="javascript:;"
+            ng-click="ctrl.setPage(ctrl.currentPage+1, (ctrl.currentPage>=ctrl.totalPages-1))"
+            ng-class="{
+                disabled: ctrl.currentPage>=ctrl.totalPages-1
+            }">
+            &gt;
+        </a>
+    </li>
+    <li ng-if="ctrl.totalPages>ctrl.visiblePages"
+        ng-hide="ctrl.settings.hideLastLink"
+        ng-class="{
+            disabled: ctrl.currentPage>=ctrl.totalPages-1
+        }">
+        <a  href="javascript:;"
+            ng-click="ctrl.setPage(ctrl.totalPages-1)"
+            ng-class="{
+                disabled: ctrl.currentPage>=ctrl.totalPages-1
+            }">
+             &raquo;
+        </a>
+    </li>
+</ul>

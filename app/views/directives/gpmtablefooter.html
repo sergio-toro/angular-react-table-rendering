@@ -1,0 +1,40 @@
+<div class="row" ng-show="ctrl.totalResults>0">
+    <div ng-if="!ctrl.disablePerPage" class="col-xs-3">
+        <div ng-show="ctrl.totalResults">
+            <label for="perPageSelect" class=" form-control-static">
+                Por página
+            </label>
+            <select id="perPageSelect"
+                class="form-control input-sm per-page-50"
+                ng-model="ctrl.perPage"
+                ng-options="perPage for perPage in ctrl.perPageOptions"
+                ng-change="ctrl.onPerPageChanged(ctrl.perPage)"
+            ></select>
+        </div>
+    </div>
+    <div ng-if="!ctrl.disablePageInfo" class="col-xs-4">
+        <span class="text-align-center block" ng-switch="ctrl.totalResults">
+            <span class="inline" ng-switch-when="1">
+                Mostrando {{ctrl.totalResults}} registro
+            </span>
+            <span class="inline" ng-switch-default>
+                Mostrando registros {{ctrl.resultsStart+1}} a {{ctrl.resultsEnd}} de {{ctrl.totalResults}} totales
+            </span>
+        </span>
+    </div>
+    <div ng-class="{
+            'col-xs-12': ctrl.disablePageInfo && ctrl.disablePerPage,
+            'col-xs-9': ctrl.disablePageInfo && !ctrl.disablePerPage,
+            'col-xs-8': !ctrl.disablePageInfo && ctrl.disablePerPage,
+            'col-xs-5': !ctrl.disablePageInfo && !ctrl.disablePerPage,
+        }">
+        <div class="block text-align-right">
+            <gpm-pagination
+                ng-model="ctrl.currentPage"
+                per-page="ctrl.perPage"
+                max-pages="ctrl.maxPages"
+                total-results="ctrl.totalResults">
+            </gpm-pagination>
+        </div>
+    </div>
+</div>

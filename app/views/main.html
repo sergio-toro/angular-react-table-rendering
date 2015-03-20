@@ -1,0 +1,19 @@
+<button
+    ng-hide="ctrl.parameters.length"
+    class="btn btn-default btn-sm"
+    ng-click="ctrl.loadData()">
+    Load Data
+</button>
+<button
+    ng-show="ctrl.parameters.length"
+    class="btn btn-default btn-sm"
+    ng-click="ctrl.clearData()">
+    Clear Data
+</button>
+
+<div ng-if="ctrl.parameters.length">
+    <quick-search-table
+        data="ctrl.data"
+        parameters="ctrl.parameters">
+    </quick-search-table>
+</div>

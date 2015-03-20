@@ -1,0 +1,70 @@
+// bower:scss
+// endbower
+
+.overflow-x-auto {
+    .table-fixed {
+        overflow-x: auto;
+    }
+}
+
+quick-search-table {
+    table {
+        background: #FFF;
+        thead {
+            background: #FFF;
+        }
+        .tooltip-inner {
+            min-width: 150px;
+            text-align: left;
+        }
+    }
+
+    .popover-content {
+        ul {
+            li {
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+
+
+.table-fixed {
+    position: relative;
+    overflow: hidden;
+
+    table {
+        position: relative;
+    }
+
+    ul.fixed-header {
+        display: block;
+        position: absolute;
+
+        margin: 0px;
+        padding: 0px;
+        z-index: 1020;
+
+        overflow-x: visible;
+        background: linear-gradient(to bottom, #F8F8F8 0px, #ECECEC 100%) repeat-x scroll 0 0 #F2F2F2;
+        color: #707070;
+        border: 1px solid #DDDDDD;
+        font-weight: bold;
+
+        > li {
+            display: table;
+            float: left;
+
+            border-right: 1px solid #DDDDDD;
+            &:last-child  {
+                border-right: 0px;
+            }
+
+            > span {
+                display: table-cell;
+                vertical-align:middle
+            }
+        }
+    }
+}

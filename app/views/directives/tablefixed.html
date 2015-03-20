@@ -1,0 +1,18 @@
+<div class="table-fixed">
+    <ul class="fixed-header"
+        ng-show="ctrl.fixedHeaderDisplay"
+        style="width:{{ctrl.fixedHeaderWidth}}px; top: {{ctrl.fixedHeaderTop}}px;"
+    >
+        <li
+            ng-repeat="param in ctrl.elements"
+            style="
+                width: {{param.width}}px;
+                height: {{fixedHeaderHeight}}px;
+                padding: {{param.padding}}px;
+            "
+        >
+            <span ng-bind-html="param.name"></span>
+        </li>
+    </ul>
+    <div ng-transclude></div>
+</div>
